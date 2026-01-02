@@ -1,12 +1,11 @@
 # NIFSLOTSNIPER
 This tool modifies binary .nif files and launches external patchers like Synthesis, which may cause some antivirus software to trigger a 'False Positive' alert.
-
+Unzip glm.zip in the include folder
 # NIF Slot Sniper
 
 **NIF Slot Sniper** は、Skyrim 等のゲームで使用される `.nif` ファイルのパーティション（スロット）割り当てを視覚的に確認・編集するための軽量なツールです。
 
 A lightweight tool to visually inspect and edit partition (slot) assignments for `.nif` files used in games like Skyrim.
-Unzip glm.zip in the include folder
 ---
 
 ## 🛠 Features (主な機能)
