@@ -55,3 +55,42 @@ Windows Defender 等のセキュリティソフトにより「トロイの木馬
 ## 📜 License
 
 This project is licensed under the MIT License.
+
+
+### Workflow Diagram
+```mermaid
+graph TD
+    %% 外部データ
+    LO[Your Esps LoadOrder] --> SE[synthesis patch: slotExporter]
+    
+    %% 将来の構想
+    FutureTool["Future: Simplified Editing Tool (Planned)"] -.->|Planned replacement| EX_TXT
+
+    %% エクスポート工程
+    SE -- "1. Export Slot Data" --> EX_TXT((slotdata-*.txt))
+    Manual[Manual Editing] --> EX_TXT
+    
+    %% Nif Slot Sniper側の工程
+    subgraph "Nif Slot Sniper (Mesh Side)"
+        EX_TXT -- "2. Import Text & Read Path" --> NSS[Nif Slot Sniper]
+        NSS -- "3. Locate & Load" --> NIF_IN[.NIF File]
+        NIF_IN -- "Data for Editing" --> NSS
+        NSS -- "4. Save Updated NIF" --> NIF_OUT[.NIF File]
+    end
+    
+    %% Synthesis側の工程
+    subgraph "Synthesis (ESP Side)"
+        EX_TXT -- "Read Text" --> SI[synthesis patch: slotImporter]
+        LO --> SI
+        SI -- "Update ESP Data" --> ESP_OUT[.esp]
+    end
+    
+    %% 最終結果
+    NIF_OUT <==>|Synchronization| ESP_OUT
+    
+    %% スタイル設定
+    style NSS fill:#d4edda,stroke:#28a745
+    style SI fill:#fff3cd,stroke:#ffc107
+    style EX_TXT fill:#f8d7da,stroke:#dc3545
+    %% 将来ツールのスタイル（グレーの点線枠）
+    style FutureTool stroke-dasharray: 5 5,fill:#e9ecef,stroke:#6c757d
