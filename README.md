@@ -56,7 +56,9 @@ Windows Defender 等のセキュリティソフトにより「トロイの木馬
 
 This project is licensed under the MIT License.
 
+重要】 現在のバージョン(v0.1)では、slotdata-*.txt の書き出し機能が未実装のため、スロット番号の変更はテキストファイルを直接手動で編集してください。（次回以降のアップデートでツール内編集に対応予定）
 
+[Important] In version v0.1, Nif Slot Sniper cannot yet export changes to the text file. To change slot numbers, you must manually edit slotdata-*.txt directly. (In-tool editing is planned for a future update.)
 ### Workflow Diagram
 ```mermaid
 graph TD
